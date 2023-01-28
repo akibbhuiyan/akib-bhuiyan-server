@@ -6,12 +6,11 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.get("/", (req, res) => {
+  res.send("Personal PortFolio Server!");
+});
 async function run() {
   try {
-    app.get("/", (req, res) => {
-      res.send("Personal PortFolio Server!");
-    });
-
     app.post("/contact", async (req, res) => {
       const name = req.body.firstName + req.body.lastName;
       const email = req.body.email;
